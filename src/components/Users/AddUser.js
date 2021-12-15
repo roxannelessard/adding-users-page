@@ -10,13 +10,14 @@ export const AddUser = (props) => {
 
   const addUserHandler = (event) => {
     event.preventDefault();
-    if (enteredUsername.trim().length === 0 || setEnteredAge.trim().length === 0) {
+    if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
       return;
     }
     // by adding a + before enteredAge we ensure that we compare numbers
     if (+enteredAge <  1) {
       return;
     }
+    props.onAddUser(enteredUsername, enteredAge); // calling the function in App.js with these arguments (data stored here)
     setEnteredUsername('');
     setEnteredAge('');
   };
